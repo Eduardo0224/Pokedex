@@ -8,6 +8,8 @@
 
 import Foundation
 
+typealias ResultConnection<RequestType> = Result<RequestType, PokedexAPI.NetworkError>
+
 class PokedexAPI {
     
     // MARK: - Enums
@@ -18,9 +20,11 @@ class PokedexAPI {
      */
     enum Endpoints {
         static let base = "https://pokeapi.co/api/v2"
+        static let imagesBase = "https://pokeres.bastionbot.org/images/pokemon"
 
-        case getPokemonList
+        case getPokemonList(Int)
         case getPokemon(String)
+        case getPokemonLargeImage(String)
         case getPredominantColor(String)
         case getStats(String)
         case getEvolutions(String)
@@ -28,10 +32,12 @@ class PokedexAPI {
 
         var stringURL: String {
             switch self {
-            case .getPokemonList:
-                return "\(Endpoints.base)/pokemon/"
+            case .getPokemonList(let limit):
+                return "\(Endpoints.base)/pokemon?limit=\(limit)"
             case .getPokemon(let id):
                 return "\(Endpoints.base)/pokemon/\(id)/"
+            case .getPokemonLargeImage(let id):
+                return "\(Endpoints.imagesBase)/\(id).png"
             case .getPredominantColor(let id):
                 return "\(Endpoints.base)/pokemon-color/\(id)/"
             case .getStats(let id):
@@ -48,6 +54,7 @@ class PokedexAPI {
 
     /// NetworkError
     enum NetworkError: Error {
+        case urlNil
         case requestError(String?)
         case internalServerError
         case decodeError(String)
@@ -73,7 +80,7 @@ class PokedexAPI {
     // MARK: - Functions
     @discardableResult class func taskForGETRequest<RequestType: Decodable>(in url: URL,
                                                                             response: RequestType.Type,
-                                                                            completion: @escaping (Result<RequestType, NetworkError>) -> Void) -> URLSessionTask {
+                                                                            completion: @escaping (ResultConnection<RequestType>) -> Void) -> URLSessionTask {
         let dataTask = URLSession.shared.dataTask(with: url) { data, urlResponse, requestError in
 
             if let error = requestError {
