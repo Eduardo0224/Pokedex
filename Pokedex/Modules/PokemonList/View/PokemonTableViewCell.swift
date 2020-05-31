@@ -29,6 +29,7 @@ class PokemonTableViewCell: UITableViewCell {
 
         guard model.types.count <= 3 else { return }
         for (index, type) in model.types.enumerated() {
+            typesImageViews[index].isHidden = false
             typesImageViews[index].image = type.image
         }
     }

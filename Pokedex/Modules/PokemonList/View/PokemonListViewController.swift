@@ -71,6 +71,16 @@ extension PokemonListViewController {
     }
 }
 
+// MARK: - UITableViewDelegate
+extension PokemonListViewController {
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let detailViewController = PokemonDetailViewController.instantiateFromStoryboard(.pokemonDetail)
+        detailViewController.hidesBottomBarWhenPushed = true;
+        (detailViewController as? InjectDependenciesProtocol)?.initiate(with: viewModel.filteredPokemons[indexPath.row])
+        navigationController?.pushViewController(detailViewController, animated: true)
+    }
+}
+
 // MARK: - Constants
 extension PokemonListViewController {
     struct Constants {

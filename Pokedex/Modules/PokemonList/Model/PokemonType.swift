@@ -20,6 +20,10 @@ struct PokemonType: Codable {
     var image: UIImage? {
         TypeEnum(rawValue: self.type.name)?.image
     }
+
+    var tagImage: UIImage? {
+        TypeEnum(rawValue: self.type.name)?.tagImage
+    }
 }
 
 extension PokemonType {
@@ -46,6 +50,30 @@ extension PokemonType {
                 case .rock: return #imageLiteral(resourceName: "Rock.png")
                 case .steel: return #imageLiteral(resourceName: "Steel.png")
                 case .water: return #imageLiteral(resourceName: "Water.png")
+                case .unknown: return nil
+            }
+        }
+
+        var tagImage: UIImage? {
+            switch self {
+                case .bug: return #imageLiteral(resourceName: "Tag_Bug.png")
+                case .dark: return #imageLiteral(resourceName: "Tag_Dark.png")
+                case .dragon: return #imageLiteral(resourceName: "Tag_Dragon.png")
+                case .electric: return #imageLiteral(resourceName: "Tag_Electric.png")
+                case .fairy: return #imageLiteral(resourceName: "Tag_Fairy.png")
+                case .fight: return #imageLiteral(resourceName: "Tag_Fight.png")
+                case .fire: return #imageLiteral(resourceName: "Tag_Fire.png")
+                case .flying: return #imageLiteral(resourceName: "Tag_Flying.png")
+                case .ghost: return #imageLiteral(resourceName: "Tag_Ghost.png")
+                case .grass: return #imageLiteral(resourceName: "Tag_Grass.png")
+                case .ground: return #imageLiteral(resourceName: "Tag_Ground.png")
+                case .ice: return #imageLiteral(resourceName: "Tag_Ice.png")
+                case .normal: return #imageLiteral(resourceName: "Tag_Normal.png")
+                case .poison: return #imageLiteral(resourceName: "Tag_Poison.png")
+                case .psychic: return #imageLiteral(resourceName: "Tag_Psychic.png")
+                case .rock: return #imageLiteral(resourceName: "Tag_Rock.png")
+                case .steel: return #imageLiteral(resourceName: "Tag_Steel.png")
+                case .water: return #imageLiteral(resourceName: "Tag_Water.png")
                 case .unknown: return nil
             }
         }
