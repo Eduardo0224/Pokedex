@@ -10,7 +10,7 @@ import UIKit
 
 extension UIImageView {
 
-    func donwloadAvatar(from id: Int) {
+    func downloadAvatar(from id: Int) {
         if let url = PokedexAPI.Endpoints.getPokemonLargeImage(String(id)).url {
             downloadImage(fromURL: url)
         }

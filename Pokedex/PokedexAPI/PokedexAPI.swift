@@ -20,7 +20,7 @@ class PokedexAPI {
      */
     enum Endpoints {
         static let base = "https://pokeapi.co/api/v2"
-        static let imagesBase = "https://pokeres.bastionbot.org/images/pokemon"
+        static let imagesLargeBase = "https://pokeres.bastionbot.org/images/pokemon"
 
         case getPokemonList(Int)
         case getPokemon(String)
@@ -37,7 +37,7 @@ class PokedexAPI {
             case .getPokemon(let id):
                 return "\(Endpoints.base)/pokemon/\(id)/"
             case .getPokemonLargeImage(let id):
-                return "\(Endpoints.imagesBase)/\(id).png"
+                return "\(Endpoints.imagesLargeBase)/\(id).png"
             case .getPredominantColor(let id):
                 return "\(Endpoints.base)/pokemon-color/\(id)/"
             case .getStats(let id):

@@ -24,6 +24,7 @@
 		A07BE57424830AD300CC77DD /* InjectDependenciesProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A07BE57324830AD300CC77DD /* InjectDependenciesProtocol.swift */; };
 		A07BE57B24830EDE00CC77DD /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A07BE57A24830EDE00CC77DD /* UIView+Extensions.swift */; };
 		A07BE57D248321A600CC77DD /* UISearchBar+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A07BE57C248321A600CC77DD /* UISearchBar+Extensions.swift */; };
+		A07BE57F2483DBEB00CC77DD /* PokemonSprites.swift in Sources */ = {isa = PBXBuildFile; fileRef = A07BE57E2483DBEB00CC77DD /* PokemonSprites.swift */; };
 		A0C956892481BC4800C8CA85 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0C956882481BC4800C8CA85 /* AppDelegate.swift */; };
 		A0C9568B2481BC4800C8CA85 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0C9568A2481BC4800C8CA85 /* SceneDelegate.swift */; };
 		A0C9568D2481BC4800C8CA85 /* PokemonListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0C9568C2481BC4800C8CA85 /* PokemonListViewController.swift */; };
@@ -51,6 +52,7 @@
 		A07BE57324830AD300CC77DD /* InjectDependenciesProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InjectDependenciesProtocol.swift; sourceTree = "<group>"; };
 		A07BE57A24830EDE00CC77DD /* UIView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
 		A07BE57C248321A600CC77DD /* UISearchBar+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UISearchBar+Extensions.swift"; sourceTree = "<group>"; };
+		A07BE57E2483DBEB00CC77DD /* PokemonSprites.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonSprites.swift; sourceTree = "<group>"; };
 		A0C956852481BC4800C8CA85 /* Pokedex.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pokedex.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A0C956882481BC4800C8CA85 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A0C9568A2481BC4800C8CA85 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -132,6 +134,7 @@
 				A07BE5672482BBC800CC77DD /* NamedAPIResource.swift */,
 				A07BE56B2482D0C000CC77DD /* Pokemon.swift */,
 				A07BE56F2482EDB000CC77DD /* PokemonType.swift */,
+				A07BE57E2483DBEB00CC77DD /* PokemonSprites.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -262,6 +265,7 @@
 				A0C9568D2481BC4800C8CA85 /* PokemonListViewController.swift in Sources */,
 				A07BE56E2482E69600CC77DD /* String+Extensions.swift in Sources */,
 				A07BE57424830AD300CC77DD /* InjectDependenciesProtocol.swift in Sources */,
+				A07BE57F2483DBEB00CC77DD /* PokemonSprites.swift in Sources */,
 				A0C9569E2481C9F600C8CA85 /* PokedexAPI.swift in Sources */,
 				A07BE56A2482C49900CC77DD /* UIImageView+Extensions.swift in Sources */,
 				A07BE5682482BBC800CC77DD /* NamedAPIResource.swift in Sources */,
@@ -420,6 +424,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = V8BCKJ57FF;
 				INFOPLIST_FILE = Pokedex/Info.plist;
@@ -430,6 +435,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.valid.Pokedex;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -439,6 +445,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = V8BCKJ57FF;
 				INFOPLIST_FILE = Pokedex/Info.plist;
@@ -449,6 +456,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.valid.Pokedex;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

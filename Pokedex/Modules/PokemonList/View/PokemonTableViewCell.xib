@@ -20,7 +20,7 @@
                     <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="13" translatesAutoresizingMaskIntoConstraints="NO" id="qUZ-S0-ApI" userLabel="Root Stack View">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="75"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="wiO-Eg-aQM" userLabel="Pokemon Image View">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placeholder_pokemon" translatesAutoresizingMaskIntoConstraints="NO" id="wiO-Eg-aQM" userLabel="Pokemon Image View">
                                 <rect key="frame" x="20" y="12.5" width="50" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="60G-DO-zLi"/>
@@ -94,6 +94,7 @@
         </tableViewCell>
     </objects>
     <resources>
+        <image name="placeholder_pokemon" width="64" height="64"/>
         <namedColor name="SubtitlePokemon">
             <color red="0.64313725490196083" green="0.64313725490196083" blue="0.64313725490196083" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

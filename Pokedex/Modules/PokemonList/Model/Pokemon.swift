@@ -13,6 +13,7 @@ struct Pokemon: Codable {
     let name, locationAreaEncounters: String
     let isDefault: Bool
     let types: [PokemonType]
+    let sprites: PokemonSprites
 
     enum CodingKeys: String, CodingKey {
         case id
@@ -24,6 +25,7 @@ struct Pokemon: Codable {
         case weight
 
         case locationAreaEncounters = "location_area_encounters"
+        case sprites
         case types
     }
 }

@@ -18,18 +18,11 @@ class PokemonListViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        searchController.searchBar.delegate = self
-        searchController.obscuresBackgroundDuringPresentation = false
+        setupSearchController()
         setupNavigationBar(withTitle: "Pokemon", and: searchController)
         registerPokemonTableViewCell()
         configureTableView()
-        show(indicator: activityIndicator, in: self)
-        viewModel.getPokemonList(onComplete: {
-            self.hide(indicator: self.activityIndicator, in: self)
-            self.tableView.reloadData()
-        }) { _ in
-            self.hide(indicator: self.activityIndicator, in: self)
-        }
+        getPokemonList()
     }
 
     private func configureTableView() {
@@ -41,6 +34,21 @@ class PokemonListViewController: UITableViewController {
 
     private func registerPokemonTableViewCell() {
         tableView.register(cell: Constants.pokemonCell, withId: Constants.pokemonCellId)
+    }
+
+    private func setupSearchController() {
+        searchController.searchBar.delegate = self
+        searchController.obscuresBackgroundDuringPresentation = false
+    }
+
+    private func getPokemonList() {
+        show(indicator: activityIndicator, in: self)
+        viewModel.getPokemonList(onComplete: {
+            self.hide(indicator: self.activityIndicator, in: self)
+            self.tableView.reloadData()
+        }) { _ in
+            self.hide(indicator: self.activityIndicator, in: self)
+        }
     }
 }
 
@@ -55,6 +63,11 @@ extension PokemonListViewController {
         cell?.configure(viewModel.filteredPokemons[indexPath.row])
         cell?.setNeedsLayout()
         return cell ?? UITableViewCell()
+    }
+
+    override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        (cell as? PokemonTableViewCell)?.configure(viewModel.filteredPokemons[indexPath.row])
+        cell.setNeedsLayout()
     }
 }
 
