@@ -10,15 +10,21 @@ import UIKit
 
 class PokemonMoveTableViewCell: UITableViewCell {
 
+    // MARK: - @IBOutlets
+    @IBOutlet private weak var nameLabel: UILabel!
+    @IBOutlet private weak var levelLabel: UILabel!
+    @IBOutlet private weak var typeImageView: UIImageView!
+
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
     }
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
+    func configure(_ name: String, move: String) {
+        nameLabel.text = name.firstUppercased
 
-        // Configure the view for the selected state
-    }
-    
+        // TODO: Hacer request a al endpoitn de movimientos
+        typeImageView.isHidden = false
+        typeImageView.image = PokemonType.TypeEnum(rawValue: move)?.image
+    }    
 }

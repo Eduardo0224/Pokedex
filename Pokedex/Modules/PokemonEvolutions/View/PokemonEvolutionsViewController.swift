@@ -13,23 +13,20 @@ class PokemonEvolutionsViewController: UITableViewController {
     // ViewModel
     private let viewModel = PokemonEvolutionsViewModel()
     private(set) var pokemon: Pokemon?
+    var delegate: PokemonTableViewDelegate?
 
     override func viewDidLoad() {
         super.viewDidLoad()
         configureTableView()
         registerEvolutionTableViewCell()
-
-        guard let pokemon = pokemon else {
-            return
-        }
-        viewModel.getPokemonEvolutions(by: String(pokemon.id), onComplete: {
-
-
-        }) { (_) in
-
-        }
+        tableView.reloadData()
     }
 
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        delegate?.reloadDataDidUpdate(contentSizeHeight: tableView.contentSize.height)
+    }
+    
     private func configureTableView() {
         tableView.delegate = self
         tableView.dataSource = self

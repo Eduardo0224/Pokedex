@@ -27,7 +27,7 @@ struct PokemonType: Codable {
 }
 
 extension PokemonType {
-    private enum TypeEnum: String {
+    enum TypeEnum: String {
         case bug, dark, dragon, electric, fairy, fight, fire, flying, ghost, grass, ground, ice, normal, poison, psychic, rock, steel, water, unknown
 
         var image: UIImage? {

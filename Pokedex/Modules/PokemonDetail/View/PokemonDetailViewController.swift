@@ -60,11 +60,16 @@ class PokemonDetailViewController: UIViewController {
     private func setupContainersViewControllers() {
         let evolutions = PokemonEvolutionsViewController.instantiateFromStoryboard(.pokemonEvolutions) as? PokemonEvolutionsViewController
         evolutions?.initiate(with: self.pokemon)
-
+        evolutions?.delegate = self
         evolutionsViewController = evolutions
 
         statsViewController = PokemonStatsViewController.instantiateFromStoryboard(.pokemonStats)
-        movesViewController = PokemonMovesViewController.instantiateFromStoryboard(.pokemonMoves)
+        statsViewController?.delegate = self
+
+        let moves = PokemonMovesViewController.instantiateFromStoryboard(.pokemonMoves) as? PokemonMovesViewController
+        moves?.initiate(with: self.pokemon)
+        moves?.delegate = self
+        movesViewController = moves
     }
     
     override func viewDidLoad() {
@@ -107,6 +112,14 @@ class PokemonDetailViewController: UIViewController {
             break
         }
     }
+
+}
+
+extension PokemonDetailViewController: PokemonTableViewDelegate {
+    func reloadDataDidUpdate(contentSizeHeight height: CGFloat) {
+        contentViewHeightConstraint.constant = (height + 20)
+    }
+
 
 }
 
